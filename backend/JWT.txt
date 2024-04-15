@@ -1,0 +1,13 @@
+After logging in the user will be provided with a auth token - Here, we use JWT authentication
+
+JWT token consist of three parts 
+1. Header - include algorithm and token type
+2. payload - data of the user
+3. signature - token will be signed with a SECRET
+
+This secret could be saved in .env.local file or.cfg file , meaning it will not be exposed 
+
+This will help to verify if payload data is changed !!!
+
+jwt.verify() method can be used to check if someone has tempered the token !!!
+(Sent after decoding)

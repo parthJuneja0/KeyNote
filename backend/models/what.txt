@@ -1,0 +1,2 @@
+This folder contains mongoose models.
+In these, we define the schema for the indivisula models.
