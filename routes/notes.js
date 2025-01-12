@@ -4,7 +4,7 @@ const Notes = require('../models/Notes');
 const fetchuser = require('../middlewares/fetchuser');
 const { body, validationResult } = require('express-validator');
 
-// Route 1: Fetching all notes of a user using: POST "/api/notes/fetchallnotes". Require login
+// Route 1: Fetching all notes of a user using: POST "/api/notes/fetchallnotes".
 router.get('/fetchallnotes', fetchuser, async (req, res) => {
     try {
         const notes = await Notes.find({ user: req.user.id });
@@ -16,7 +16,7 @@ router.get('/fetchallnotes', fetchuser, async (req, res) => {
     }
 });
 
-// Route 1: Adding a note using: POST "/api/notes/fetchallnotes". Require login
+// Route 1: Adding a note using: POST "/api/notes/fetchallnotes".
 router.post('/addnote', fetchuser, [
     body('title', 'Enter a valid title').isLength({ min: 3 }),
     body('description', 'Description must be atleast 5 characters').isLength({ min: 5 })
@@ -28,7 +28,6 @@ router.post('/addnote', fetchuser, [
             return res.status(400).json({ errors: validationResult(req).array() });
         }
 
-        // We can use destructuring like this-
         const { title, description, tag } = req.body;
 
         const note = new Notes({
@@ -44,9 +43,8 @@ router.post('/addnote', fetchuser, [
     }
 });
 
-// Route 3: Updating a note using: PUT "/api/notes/updatenote". Require login
+// Route 3: Updating a note using: PUT "/api/notes/updatenote".
 router.put('/updatenote/:id', fetchuser, async (req, res) => {
-    // Replace :id with the id of the note to be updated in the url
 
     const { title, description, tag } = req.body;
 
@@ -57,9 +55,7 @@ router.put('/updatenote/:id', fetchuser, async (req, res) => {
         if (description) { newNote.description = description };
         if (tag) { newNote.tag = tag };
 
-        // Find the note to be updated and update it
-        let note = await Notes.findById(req.params.id);
-        // req.params.id is the id in the url 
+        let note = await Notes.findById(req.params.id)
         if (!note) { return res.status(404).send("Not Found") }
 
         // To check if the note belong to the user who is updating it
@@ -68,8 +64,6 @@ router.put('/updatenote/:id', fetchuser, async (req, res) => {
         }
 
         note = await Notes.findByIdAndUpdate(req.params.id, { $set: newNote }, { new: true });
-        // {new: true} is used to create a new note if the note doesn't exist
-
         res.send(note);
 
     } catch (error) {
@@ -78,12 +72,10 @@ router.put('/updatenote/:id', fetchuser, async (req, res) => {
     }
 });
 
-// Route 4: Deleting a note using: DELETE "/api/notes/deletenote". Require login
+// Route 4: Deleting a note using: DELETE "/api/notes/deletenote".
 router.delete('/deletenote/:id', fetchuser, async (req, res) => {
     try {
-        // Find the note to be deleted and delete it
         let note = await Notes.findById(req.params.id);
-        // req.params.id is the id in the url 
         if (!note) { return res.status(404).send("Not Found") }
 
         // To check if the note belong to the user who is deleting it
@@ -92,7 +84,6 @@ router.delete('/deletenote/:id', fetchuser, async (req, res) => {
         }
 
         note = await Notes.findByIdAndDelete(req.params.id);
-
         res.send("Note has been deleted");
 
     } catch (error) {

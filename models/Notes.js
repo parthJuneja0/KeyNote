@@ -3,7 +3,6 @@ const { Schema } = mongoose;
 
 const NotesSchema = new Schema({
     user: {
-        // This is to associate the notes to a particular user
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
     },

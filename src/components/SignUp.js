@@ -9,7 +9,7 @@ const SignUp = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const response = await fetch('http://localhost:5000/api/auth/userjoin', {
+        const response = await fetch('api/auth/userjoin', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -20,11 +20,10 @@ const SignUp = () => {
         if (json.success) {
             // Save the auth token and redirect
             localStorage.setItem('token', json.authToken);
-            console.log(localStorage.getItem('token'));
             navigate('/');
         }
         else {
-            alert('Bhaaiiii, kuch toh gadbad hai');
+            console.log("Invalid Credentials");
         }
     }
 

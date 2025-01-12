@@ -8,7 +8,7 @@ const LogIn = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch('http://localhost:5000/api/auth/login', {
+        const response = await fetch('/api/auth/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -19,11 +19,10 @@ const LogIn = () => {
         if (json.success) {
             console.log(json);
             localStorage.setItem('token', json.authToken);
-            console.log(localStorage.getItem('token'));
             navigate('/');
         }
         else {
-            alert('Abeeey, kuch toh gadbad hai');
+            console.log("Invalid Credentials");
         }
         // navigate(-1); can be used as an alternative to usehistory hook to go back to the previous page
     }
@@ -53,7 +52,6 @@ const LogIn = () => {
             </div>
         </div>
     )
-
 }
 
 export default LogIn

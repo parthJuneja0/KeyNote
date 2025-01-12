@@ -1,5 +1,0 @@
-Here are some additional tips for deploying React apps to production:
-
-Use a content delivery network (CDN) to serve your app's static assets. This can improve the performance of your app by serving assets from servers that are closer to your users.
-Use a reverse proxy to serve your app's dynamic content. This can help to protect your app from malicious attacks.
-Configure your app to serve the correct HTTP headers. This can improve the performance and security of your app.

@@ -4,7 +4,6 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 const Navbar = () => {
     let navigate = useNavigate();
     let location = useLocation();
-    // Using useLocation hook to activate the active page name in navbar
 
     const handlelogout = () => {
         localStorage.removeItem('token')

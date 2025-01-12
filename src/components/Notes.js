@@ -4,7 +4,6 @@ import NoteItem from './NoteItem';
 import AddNote from './AddNote';
 import { useNavigate } from 'react-router-dom';
 
-
 const Notes = () => {
 
     let navigate = useNavigate();
@@ -18,7 +17,7 @@ const Notes = () => {
         else {
             navigate("/login")
         }
-    })
+    }, [])
 
     const [note, setNote] = useState({ title: "", description: "", tag: "" })
 
@@ -47,9 +46,7 @@ const Notes = () => {
             <AddNote />
 
             {/* Modal Launch button */}
-            <button ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Launch demo modal
-            </button>
+            <button ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
             {/* Modal */}
             <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
                 <div className="modal-dialog">

@@ -10,7 +10,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 function App() {
   return (
     <NoteState>
-      {/* This is required to use Context API */}
       <Router>
         <Navbar />
         <Routes>

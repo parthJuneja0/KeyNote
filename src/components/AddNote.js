@@ -13,16 +13,11 @@ const AddNote = () => {
     }
 
     const handleChange = (e) => {
-        // Must see the change in AddNote component in components tab of developer tools.
         e.preventDefault();
-        // We want to update the state of the note object , here e.target.name will be title, description or tag and e.target.value will be the value of the input field.
         setNote({ ...note, [e.target.name]: e.target.value })
-        // (...) is spread operator which is used to copy the previous state and adding some changes to it.
-        // note will remain same but the value of e.target.name will be changed only.
     }
-    // Learn the syntax of spread operator
-    return (
 
+    return (
         <div className='container my-4'>
             <h1>Add a Note</h1>
             <form>
