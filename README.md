@@ -2,6 +2,8 @@
 
 **KeyNote** is a full-stack note-making web application built using the MERN stack. It offers a secure and user-friendly interface for managing personal notes with essential CRUD (Create, Read, Update, Delete) functionalities.
 
+**Try it Live**: [KeyNote on Render](https://keynote-f51i.onrender.com/)
+
 ## Learning Experience
 
 KeyNote was a milestone project in my MERN stack learning journey, integrating the full stack into one cohesive application. It provided hands-on experience with:  
