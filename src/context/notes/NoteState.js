@@ -3,7 +3,15 @@ import { useState } from "react";
 
 const NoteState = (props) => {
 
-    const [notes, setNotes] = useState([])
+    const [notes, setNotes] = useState([{
+        "title": "Sample Note",
+        "description": "This is a sample note description.",
+        "tag": "general",
+        "_id": "64b8f0f4f1d2c3a5b6e7f890",
+        "user": "64b8f0a2f1d2c3a5b6e7f88f",
+        "date": "2023-07-20T12:34:56.789Z",
+        "__v": 0
+    }])
 
     // Fetching all notes
     const getNotes = async () => {
